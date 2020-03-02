@@ -1,7 +1,16 @@
 import Doctor from '../models/doctor'
+import createDoctors from '../util/seedingData/seedDoctor'
 
 module.exports = {
-  // 
+  // seed data
+  createDummy: (req,res) => {
+    createDoctors()
+    res.status(200).json({
+      message: `all data has been created`
+    })
+  },
+
+  //  get all doctor data
   getAll: (req,res) => {
     Doctor.find({})
     .then((data) => {

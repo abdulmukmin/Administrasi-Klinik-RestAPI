@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-const ZipCode = new Schema (
+const ZipCodeSchema = new Schema (
   {
     name: {
       type: String
@@ -12,7 +12,6 @@ const ZipCode = new Schema (
   }
 )
 
-
-const ZipCode = mongoose.model("ZipCode", ZipCode);
+const ZipCode = mongoose.model("ZipCode", ZipCodeSchema);
 
 export default ZipCode
