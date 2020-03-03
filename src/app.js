@@ -24,10 +24,10 @@ db.once('open', function() {
   console.log('mongoDB connected')
 })
 
-// var mongodUri = `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASS}@ds151943.mlab.com:51943/short_link`
-// mongoose.connect(mongodUri, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// })
+var mongodUri = `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASS}@ds151943.mlab.com:51943/short_link`
+mongoose.connect(mongodUri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
 export default app;
