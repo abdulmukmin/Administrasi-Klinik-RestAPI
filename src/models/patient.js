@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 
 var userSchema = new Schema(
   {
-    name: {
+    fullname: {
       type: String,
       required: [true, "name is requires"]
     },
@@ -27,10 +27,69 @@ var userSchema = new Schema(
       },
       required: [true, "email is required"]
     },
-    password: {
+    birthdate: {
+      type: Date,
+      required: [true, "birthdate is required"]
+    },
+    birthplace: {
       type: String,
-      required: [true, "password is requires"],
-      minlength: [6, "password min 6 character"]
+      required: [true, "birthplace is required"]
+    },
+    phoneNumber: {
+      type: String,
+      required: [true, "phone number is required"]
+    },
+    address: {
+      type: String,
+      required: [true, "address is required"]
+    },
+    address_rt: {
+      type: String,
+      required: [true, "RT is required"]
+    },
+    address_rw: {
+      type: String,
+      required: [true, "RW is required"]
+    },
+    villageOffice: {
+      type: String,
+      required: [true, "kelurahan is required"]
+    },
+    subDistrict: {
+      type: String,
+      required: [true, "kecamatan is required"]
+    },
+    city: {
+      type: String,
+      required: [true, "city is required"]
+    },
+    province: {
+      type: String,
+      required: [true, "province is required"]
+    },
+    zipCode: {
+      type: String,
+      required: [true, "postalCode is required"]
+    },
+    country: {
+      type: String,
+      required: [true, "country is required"]
+    },
+    nik: {
+      type: String,
+      required: [true, "nik is required"]
+    },
+    marriageStatus: {
+      type: String,
+      required: [true, "marriage status is required"]
+    },
+    bloodType: {
+      type: String,
+      required: [true, "blood type is required"]
+    },
+    occupation: {
+      type: String,
+      required: [true, "occupation is required"]
     },
   },
   {

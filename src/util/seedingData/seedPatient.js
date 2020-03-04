@@ -1,21 +1,23 @@
 import faker from 'faker'
 import Doctor from '../../models/doctor'
 
-function createDoctors() {
+function createPatient() {
   let doctors = []
-  let doctTitle = ['dr.', 'drg.']
   let gender = ['male', 'female']
   for (let i = 0; i < 5; ++i) {
     let newDoctor =  {
       fullname: faker.name.firstName() + ' ' + faker.name.lastName(),
-      title: doctTitle[Math.floor(Math.random() * 2)],
-      gender: gender[Math.floor(Math.random() * 2)],
       username: faker.name.findName(),
-      password: faker.random.word(),
+      gender: gender[Math.floor(Math.random() * 2)],
       email: faker.internet.email(),
       birthdate: faker.date.past(),
       birthplace: faker.address.city(),
       phoneNumber: faker.phone.phoneNumber(),
+      address: faker.address.streetAddress(),
+      address_rt: faker.address.streetAddress(),
+      address_rw: faker.address.streetAddress(),
+      villageOffice: faker.address.streetAddress(),
+      subDistrict: faker.address.streetAddress(),
       address: faker.address.streetAddress(),
       city: faker.address.city(),
       province: faker.address.state(),
@@ -29,4 +31,4 @@ function createDoctors() {
   Doctor.insertMany(doctors)
 }
 
-export default createDoctors
+export default createPatient

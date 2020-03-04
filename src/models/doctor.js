@@ -14,6 +14,10 @@ var doctorSchema = new Schema(
       type: String,
       required: [true, "title is required"]
     },
+    gender: {
+      type: String,
+      required: [true, "title is required"]
+    },
     username: {
       type: String,
       required: [true, "username is required"]
@@ -21,7 +25,7 @@ var doctorSchema = new Schema(
     password: {
       type: String,
       required: [true, "password is required"],
-      minlength: [6, "password min 6 character"]
+      // minlength: [6, "password min 6 character"]
     },
     email: {
       type: String,
