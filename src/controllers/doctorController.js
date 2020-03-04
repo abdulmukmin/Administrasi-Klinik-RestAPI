@@ -27,9 +27,9 @@ module.exports = {
     })
   },
   create: (req,res) => {
-    let data = {
+    // let data = {
 
-    }
+    // }
   },
   // to delete all posted link
   deleteAll: (req,res) => {

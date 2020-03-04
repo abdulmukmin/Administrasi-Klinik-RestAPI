@@ -61,7 +61,7 @@ var doctorSchema = new Schema(
       type: String,
       required: [true, "province is required"]
     },
-    postalCode: {
+    zipCode: {
       type: String,
       required: [true, "postalCode is required"]
     },
