@@ -7,7 +7,7 @@ var router = express.Router();
 router.get('/', function(req, res) {
   console.log(`here`)
   res.status(200).json({
-    message: `index page`
+    message: `Hilarion ❤️ Mumin`
   })
 });
 router.use('/doctor', doctor)
