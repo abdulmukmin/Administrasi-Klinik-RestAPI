@@ -9,6 +9,7 @@ import logger from 'morgan';
 import indexRouter from './routes/index';
 const app = express();
 const auth = require("./routes/auth");
+const doctor = require("./routes/doctors");
 
 app.use(logger('dev'));
 app.use(cors())
@@ -18,6 +19,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/api/v1', indexRouter);
 app.use('/auth', auth);
+app.use('/doctor', doctor);
 
 // connect to mongoDB
 // mongoose.connect(process.env.DB_MONGO, { useNewUrlParser: true, useUnifiedTopology: true }) // local
