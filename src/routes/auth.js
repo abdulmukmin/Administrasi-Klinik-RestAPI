@@ -100,7 +100,8 @@ router.post(
             let user = await Auth.findOne({
                 email
             });
-            console.log(user)
+            // user.toObject({ versionKey: false })
+            console.log(user.role)
             if (!user)
                 return res.status(400).json({
                     message: "User Not Exist"
@@ -118,16 +119,6 @@ router.post(
                 }
             };
 
-            let credential = {
-                token : '',
-                credential : {
-                    _id : user.id,
-                    username : user.username,
-                    email : user.email,
-                    role : user.role,
-                }
-            }
-
             jwt.sign(
                 payload,
                 "secret",
@@ -136,7 +127,12 @@ router.post(
                 },
                 (err, token) => {
                     if (err) throw err;
+                    let credential = {}
+                    credential._id = user._id
                     credential.token = token
+                    credential.username = user.username
+                    credential.email = user.email
+                    credential.role = user.role
                     res.status(200).send(credential)
                 }
             );
