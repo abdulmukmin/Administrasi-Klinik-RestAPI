@@ -100,6 +100,7 @@ router.post(
             let user = await Auth.findOne({
                 email
             });
+            console.log(user)
             if (!user)
                 return res.status(400).json({
                     message: "User Not Exist"
@@ -110,12 +111,22 @@ router.post(
                 return res.status(400).json({
                     message: "Incorrect Password !"
                 });
-
+            
             const payload = {
                 user: {
                     id: user.id
                 }
             };
+
+            let credential = {
+                token : '',
+                credential : {
+                    _id : user.id,
+                    username : user.username,
+                    email : user.email,
+                    role : user.role,
+                }
+            }
 
             jwt.sign(
                 payload,
@@ -125,11 +136,11 @@ router.post(
                 },
                 (err, token) => {
                     if (err) throw err;
-                    res.status(200).json({
-                        token
-                    });
+                    credential.token = token
+                    res.status(200).send(credential)
                 }
             );
+            
         } catch (e) {
             console.error(e);
             res.status(500).json({
